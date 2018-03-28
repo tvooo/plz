@@ -1,4 +1,5 @@
 export default {
+  date: "3 June 1991",
   to: `Mr H. Potter
 The Cupboard under the Stairs
 4 Privet Drive

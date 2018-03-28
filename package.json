@@ -25,9 +25,13 @@
     "prettier": "^1.9.1"
   },
   "dependencies": {
+    "buffer": "^5.1.0",
+    "copy-to-clipboard": "^3.0.8",
     "next": "^5.1.0",
     "react": "^16.2.0",
+    "react-contenteditable": "^2.0.7",
     "react-dom": "^16.2.0",
+    "recompose": "^0.26.0",
     "styled-components": "^3.2.3"
   }
 }

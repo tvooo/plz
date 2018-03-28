@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>track.</title>
+          <title>plz</title>
           {this.props.styleTags}
         </Head>
         <body>
