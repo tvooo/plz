@@ -19,11 +19,11 @@ import store from "../store/default";
 const encode = state => {
   let objJsonStr = JSON.stringify(state);
   let objJsonB64 = Buffer.from(objJsonStr).toString("base64");
-  return objJsonB64;
+  return encodeURI(objJsonB64);
 };
 
 const decode = str => {
-  const buffer = new Buffer(str, "base64").toString("utf8");
+  const buffer = new Buffer(decodeURI(str), "base64").toString("utf8");
   return JSON.parse(buffer);
 };
 
@@ -99,19 +99,13 @@ const Letter = ({ letter, setLetter }) => (
   </Page>
 );
 
-const IndexPage = ({ initialLetter = store }) => {
+const IndexPage = ({ url }) => {
+  const { query } = url;
+  const initialLetter = query.l ? decode(query.l) : store;
   const enhance = withState("letter", "setLetter", initialLetter);
   const Component = enhance(Letter);
 
   return <Component />;
-};
-
-IndexPage.getInitialProps = async ({ query }) => {
-  if (query.l) {
-    const buffer = new Buffer(query.l, "base64").toString("utf8");
-    console.log(buffer);
-  }
-  return query.l ? { initialLetter: decode(query.l) } : {};
 };
 
 export default IndexPage;

@@ -4,7 +4,7 @@ An in-browser letter writing app, inspired by [@bastianallgeier/letter](https://
 
 ## Demo
 
-TBD
+[https://plz.protoandtype.com](https://plz.protoandtype.com)
 
 ## Usage
 
