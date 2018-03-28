@@ -1,6 +1,8 @@
-import { withState } from "recompose";
+import { withState, compose, lifecycle } from "recompose";
 import copyToClipboard from "copy-to-clipboard";
 import styled from "styled-components";
+import queryString from "query-string";
+import NoSSR from "react-no-ssr";
 
 import Page from "../components/Page";
 import A4 from "../components/A4";
@@ -18,13 +20,15 @@ import store from "../store/default";
 
 const encode = state => {
   let objJsonStr = JSON.stringify(state);
-  let objJsonB64 = Buffer.from(objJsonStr).toString("base64");
-  return encodeURI(objJsonB64);
+  // let objJsonB64 = Buffer.from(objJsonStr).toString("base64");
+  return encodeURIComponent(objJsonStr);
 };
 
 const decode = str => {
-  const buffer = new Buffer(decodeURI(str), "base64").toString("utf8");
-  return JSON.parse(buffer);
+  // const buffer = new Buffer(decodeURI(str), "base64").toString("ascii");
+  // console.log(buffer);
+  console.log(decodeURIComponent(str));
+  return JSON.parse(decodeURIComponent(str));
 };
 
 const Button = styled.button`
@@ -99,13 +103,24 @@ const Letter = ({ letter, setLetter }) => (
   </Page>
 );
 
-const IndexPage = ({ url }) => {
-  const { query } = url;
-  const initialLetter = query.l ? decode(query.l) : store;
-  const enhance = withState("letter", "setLetter", initialLetter);
-  const Component = enhance(Letter);
+const enhance = withState(
+  "letter",
+  "setLetter",
+  ({ initialLetter }) => initialLetter
+);
 
-  return <Component />;
+const Component = enhance(Letter);
+
+const IndexPage = ({ url }) => {
+  const { asPath } = url;
+  const parsed = queryString.parse(asPath.replace("/", ""));
+  const initialLetter = parsed.l ? decode(parsed.l) : store;
+
+  return (
+    <NoSSR>
+      <Component initialLetter={initialLetter} />
+    </NoSSR>
+  );
 };
 
 export default IndexPage;
