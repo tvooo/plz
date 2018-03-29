@@ -20,14 +20,11 @@ import store from "../store/default";
 
 const encode = state => {
   let objJsonStr = JSON.stringify(state);
-  // let objJsonB64 = Buffer.from(objJsonStr).toString("base64");
   return encodeURIComponent(objJsonStr);
 };
 
 const decode = str => {
-  // const buffer = new Buffer(decodeURI(str), "base64").toString("ascii");
-  // console.log(buffer);
-  console.log(decodeURIComponent(str));
+  // console.log(decodeURIComponent(str));
   return JSON.parse(decodeURIComponent(str));
 };
 
@@ -46,7 +43,7 @@ const getLinkFromLetter = state =>
 
 const Letter = ({ letter, setLetter }) => (
   <Page>
-    <div style={{ width: "210mm", margin: "0 auto 1em auto" }}>
+    <div style={{ width: "210mm", margin: "0 auto 2em auto" }}>
       <Button
         type="button"
         onClick={() => copyToClipboard(getLinkFromLetter(letter))}

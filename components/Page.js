@@ -12,9 +12,10 @@ injectGlobal`
     line-height: 1.5;
     box-sizing: border-box;
   }
+  body {
+    background: #efefef;
+    padding: 2em;
+  }
 `;
 
-export default styled.div`
-  background: #efefef;
-  padding: 2em;
-`;
+export default styled.div``;

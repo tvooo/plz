@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import ContentEditable from "react-contenteditable";
+import Editable from "./Editable";
 
-export default styled(ContentEditable)`
+export default Editable.extend`
   display: block;
   margin-bottom: 14pt;
 `;

@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import ContentEditable from "react-contenteditable";
+import Editable from "./Editable";
 
-export default styled(ContentEditable)`
+export default Editable.extend`
   position: absolute;
   top: 0;
   right: 0;
+  min-width: 30mm;
 `;
