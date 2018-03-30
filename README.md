@@ -1,5 +1,7 @@
 # plz
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tvooo/plz.svg)](https://greenkeeper.io/)
+
 An in-browser letter writing app, inspired by [@bastianallgeier/letter](https://github.com/bastianallgeier/letter)
 
 ## Demo
