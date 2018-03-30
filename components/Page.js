@@ -16,6 +16,17 @@ injectGlobal`
     background: #efefef;
     padding: 2em;
   }
+
+  @media print {
+    html {
+      background: #fff;
+    }
+    html, body {
+      width: 210mm;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
 `;
 
 export default styled.div``;

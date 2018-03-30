@@ -6,4 +6,5 @@ export default Editable.extend`
   top: 0;
   right: 0;
   min-width: 30mm;
+  text-align: right;
 `;

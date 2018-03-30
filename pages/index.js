@@ -3,8 +3,10 @@ import copyToClipboard from "copy-to-clipboard";
 import styled from "styled-components";
 import queryString from "query-string";
 import NoSSR from "react-no-ssr";
+import { Button, Link, Flex } from "kaffebar";
 
 import Page from "../components/Page";
+import Toolbar from "../components/Toolbar";
 import A4 from "../components/A4";
 import From from "../components/From";
 import To from "../components/To";
@@ -18,39 +20,42 @@ import Text from "../components/Text";
 import { Buffer } from "buffer/";
 import store from "../store/default";
 
-const encode = state => {
-  let objJsonStr = JSON.stringify(state);
-  return encodeURIComponent(objJsonStr);
-};
-
-const decode = str => {
-  // console.log(decodeURIComponent(str));
-  return JSON.parse(decodeURIComponent(str));
-};
-
-const Button = styled.button`
-  color: #268ec6;
-  text-decoration: underline;
-  border: 0;
-  outline: 0;
-  display: inline-block;
-  background: transparent;
-  cursor: pointer;
-`;
+const encode = state => encodeURIComponent(JSON.stringify(state));
+const decode = str => JSON.parse(decodeURIComponent(str));
 
 const getLinkFromLetter = state =>
   `${window.location.protocol}//${window.location.host}/?l=${encode(state)}`;
 
 const Letter = ({ letter, setLetter }) => (
   <Page>
-    <div style={{ width: "210mm", margin: "0 auto 2em auto" }}>
-      <Button
-        type="button"
-        onClick={() => copyToClipboard(getLinkFromLetter(letter))}
+    <Toolbar>
+      <Flex
+        style={{
+          width: "210mm",
+          margin: "0 auto 2em auto",
+          alignItems: "center"
+        }}
       >
-        Copy permalink to clipboard
-      </Button>
-    </div>
+        <Flex.Item>
+          <Link href={getLinkFromLetter(letter)} aria-label="plz">
+            Permalink
+          </Link>
+        </Flex.Item>
+        <Flex.Item>
+          <Button
+            type="button"
+            onClick={() => copyToClipboard(getLinkFromLetter(letter))}
+          >
+            Copy link to clipboard
+          </Button>
+        </Flex.Item>
+        <Flex.Item style={{ flex: "1 0 auto", textAlign: "right" }}>
+          <Button type="button" onClick={() => window.print()}>
+            Print
+          </Button>
+        </Flex.Item>
+      </Flex>
+    </Toolbar>
     <A4>
       <Header>
         <From
