@@ -30,7 +30,7 @@
     "kaffebar": "^1.1.0",
     "next": "^6.0.1",
     "query-string": "^6.0.0",
-    "react": "^16.2.0",
+    "react": "^16.6.2",
     "react-contenteditable": "^2.0.7",
     "react-dom": "^16.2.0",
     "react-no-ssr": "^1.1.0",
