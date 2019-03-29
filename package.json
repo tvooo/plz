@@ -32,7 +32,7 @@
     "query-string": "^6.0.0",
     "react": "^16.8.6",
     "react-contenteditable": "^2.0.7",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.8.6",
     "react-no-ssr": "^1.1.0",
     "recompose": "^0.27.0",
     "styled-components": "^3.2.3"
