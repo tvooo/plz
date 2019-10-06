@@ -28,7 +28,7 @@
     "buffer": "^5.1.0",
     "copy-to-clipboard": "^3.0.8",
     "kaffebar": "^1.1.0",
-    "next": "^6.0.1",
+    "next": "^9.0.8",
     "query-string": "^6.0.0",
     "react": "^16.2.0",
     "react-contenteditable": "^2.0.7",
