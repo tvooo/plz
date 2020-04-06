@@ -22,7 +22,7 @@
   "homepage": "https://github.com/tvooo/plz#readme",
   "devDependencies": {
     "babel-plugin-styled-components": "^1.5.1",
-    "prettier": "^1.9.1"
+    "prettier": "^2.0.4"
   },
   "dependencies": {
     "buffer": "^5.1.0",
