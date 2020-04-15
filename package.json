@@ -25,7 +25,7 @@
     "prettier": "^1.9.1"
   },
   "dependencies": {
-    "buffer": "^5.1.0",
+    "buffer": "^5.6.0",
     "copy-to-clipboard": "^3.0.8",
     "kaffebar": "^1.1.0",
     "next": "^6.0.1",
