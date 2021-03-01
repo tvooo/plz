@@ -29,7 +29,7 @@
     "copy-to-clipboard": "^3.0.8",
     "kaffebar": "^1.1.0",
     "next": "^6.0.1",
-    "query-string": "^6.0.0",
+    "query-string": "^6.14.1",
     "react": "^16.2.0",
     "react-contenteditable": "^2.0.7",
     "react-dom": "^16.2.0",
